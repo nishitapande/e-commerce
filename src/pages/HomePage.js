@@ -14,7 +14,7 @@ const HomePage = () => {
     >
       <HeroSection />
       <FilterProductSection />
-      Token: {loggedIn}
+      {/* Token: {loggedIn} */}
     </div>
   );
 };

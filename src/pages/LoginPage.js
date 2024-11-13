@@ -8,7 +8,7 @@ import {
   LockOutlined,
 } from "@ant-design/icons";
 import axios from "axios";
-import { setUser, clearUser } from "../store/slices/user/userSlice";
+import { login, setUser } from "../store/slices/user/userSlice";
 
 const LoginPage = () => {
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -32,13 +32,12 @@ const LoginPage = () => {
           headers: { "Content-Type": "application/json" },
         }
       );
+      console.log(response);
       const token = response.data.token;
-      if (token) {
-        console.log("Token:", token);
-        dispatch(setUser(token));
-      } else {
-        console.error("No token received");
-      }
+      console.log(token);
+
+      // Dispatch the login action with the token as the payload
+      dispatch(setUser(token));
     } catch (error) {
       setError("Some error occurred!");
     }
